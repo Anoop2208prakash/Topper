@@ -1,0 +1,7 @@
+// src/styles/main.scss
+@use 'abstracts/variables' as *;
+@use 'abstracts/breakpoints' as *;
+@use 'base/reset';
+@use 'base/typography';
+
+// Note: Component styles like App.module.scss will be imported locally.
