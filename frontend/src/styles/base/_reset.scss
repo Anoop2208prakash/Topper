@@ -9,6 +9,61 @@
 body {
   font-family: $font-family;
   color: $color-text-primary;
+  background-color: $color-bg-base;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================
+   Theme-Engineered Custom Scrollbar
+   ========================================= */
+
+/* Firefox Standard */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 92, 255, 0.5) rgba(4, 2, 22, 0.6);
+}
+
+/* Chrome, Edge, Safari, Brave */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(4, 2, 22, 0.7);
+  backdrop-filter: blur(12px);
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Thumb */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(67, 59, 255, 0.65) 0%,
+    rgba(100, 92, 255, 0.45) 100%
+  );
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    background: linear-gradient(
+      180deg,
+      rgba(67, 59, 255, 0.95) 0%,
+      rgba(100, 92, 255, 0.8) 100%
+    );
+    box-shadow: 0 0 10px rgba(67, 59, 255, 0.5);
+  }
+
+  &:active {
+    background: #645cff;
+  }
+}
+
+/* Corner junction */
+::-webkit-scrollbar-corner {
+  background: rgba(4, 2, 22, 0.9);
 }

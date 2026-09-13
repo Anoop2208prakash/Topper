@@ -1,22 +1,22 @@
-// src/styles/abstracts/_breakpoints.scss
+// Responsive Breakpoint Tokens
+$bp-mobile-sm: 380px;
+$bp-mobile: 640px;
+$bp-tablet: 1024px;
+$bp-laptop: 1280px;
+$bp-desktop: 1536px;
+$bp-ultrawide: 1920px;
 
-// Define breakpoint values
-$bp-mobile-sm: 360px;   // Small mobile
-$bp-mobile: 480px;      // Larger mobile
-$bp-tablet: 768px;      // Tablet vertical
-$bp-laptop: 1024px;     // Laptop/Tablet landscape
-$bp-desktop: 1280px;    // Common desktop
-$bp-ultrawide: 1536px;  // Large monitor
-
-// Responsive Mixin
-// Usage: @include respond-to(tablet) { ... styles for tablet ... }
 @mixin respond-to($breakpoint) {
-  @if $breakpoint == mobile {
-    @media (max-width: #{$bp-tablet - 1px}) { @content; }
+  @if $breakpoint == mobile-sm {
+    @media (max-width: #{$bp-mobile-sm}) { @content; }
+  } @else if $breakpoint == mobile {
+    @media (max-width: #{$bp-mobile}) { @content; }
   } @else if $breakpoint == tablet {
-    @media (min-width: #{$bp-tablet}) and (max-width: #{$bp-laptop - 1px}) { @content; }
+    @media (min-width: #{$bp-mobile + 1px}) and (max-width: #{$bp-tablet}) { @content; }
+  } @else if $breakpoint == tablet-down {
+    @media (max-width: #{$bp-tablet}) { @content; }
   } @else if $breakpoint == laptop {
-    @media (min-width: #{$bp-laptop}) and (max-width: #{$bp-desktop - 1px}) { @content; }
+    @media (min-width: #{$bp-tablet + 1px}) and (max-width: #{$bp-desktop - 1px}) { @content; }
   } @else if $breakpoint == desktop {
     @media (min-width: #{$bp-desktop}) { @content; }
   } @else if $breakpoint == ultrawide {
